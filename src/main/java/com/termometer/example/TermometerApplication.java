@@ -18,7 +18,6 @@ public class TermometerApplication {
 
     @GetMapping("/convert/farenheit/celsius/{farenheit}")
     public ResponseEntity<Double> convertFarenheitCelsius(@PathVariable double farenheit){
-
         double value = (farenheit - 32) * 5/9;
 
         return new ResponseEntity<Double>(value, HttpStatus.OK);
