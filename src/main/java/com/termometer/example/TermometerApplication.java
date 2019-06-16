@@ -27,5 +27,4 @@ public class TermometerApplication {
         double value = (celsius * 9/5) + 32;
         return new ResponseEntity<Double>(value, HttpStatus.OK);
     }
-
 }
