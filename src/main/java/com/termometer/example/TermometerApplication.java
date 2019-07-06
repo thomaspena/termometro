@@ -24,12 +24,12 @@ public class TermometerApplication {
     @GetMapping("/convert/farenheit/celsius/{farenheit}")
     public ResponseEntity<Double> convertFarenheitCelsius(@PathVariable double farenheit){
         double value = converter.convertFarenheitCelsius(farenheit);
-        return new ResponseEntity<Double>(value, HttpStatus.OK);
+        return new ResponseEntity<>(value, HttpStatus.OK);
     }
 
     @GetMapping("/convert/celsius/farenheit/{celsius}")
     public ResponseEntity<Double> convertCelsiusFarenheit(@PathVariable double celsius){
         double value = converter.convertCelsiusFarenheit(celsius);
-        return new ResponseEntity<Double>(value, HttpStatus.OK);
+        return new ResponseEntity<>(value, HttpStatus.OK);
     }
 }
