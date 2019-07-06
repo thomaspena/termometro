@@ -1,5 +1,7 @@
 package com.termometer.example;
 
+import com.termometer.example.util.Converter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
@@ -16,19 +18,18 @@ public class TermometerApplication {
         SpringApplication.run(TermometerApplication.class, args);
     }
 
+    @Autowired
+    private Converter converter;
+
     @GetMapping("/convert/farenheit/celsius/{farenheit}")
     public ResponseEntity<Double> convertFarenheitCelsius(@PathVariable double farenheit){
-
-        double value = (farenheit - 32) * 5/9;
-
+        double value = converter.convertFarenheitCelsius(farenheit);
         return new ResponseEntity<Double>(value, HttpStatus.OK);
     }
 
     @GetMapping("/convert/celsius/farenheit/{celsius}")
     public ResponseEntity<Double> convertCelsiusFarenheit(@PathVariable double celsius){
-        double value = (celsius * 9/5) + 32;
-
+        double value = converter.convertCelsiusFarenheit(celsius);
         return new ResponseEntity<Double>(value, HttpStatus.OK);
     }
-
 }
