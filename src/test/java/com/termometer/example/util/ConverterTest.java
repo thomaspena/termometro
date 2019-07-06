@@ -19,7 +19,7 @@ public class ConverterTest {
 
     @Test
     public void shouldReturnFarenheitWhenCelciusIsInput() {
-        double expectedFarenheitResult = 78;
+        double expectedFarenheitResult = 75;
         double celsiusInput = 23.88;
 
         assertEquals(expectedFarenheitResult,
